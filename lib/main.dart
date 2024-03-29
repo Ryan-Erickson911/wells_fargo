@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'data.dart';
 import 'page1.dart';
 import 'page2.dart';
@@ -8,16 +7,17 @@ import 'page4.dart';
 import 'page5.dart';
 import 'page6.dart';
 
-Future<void> main() async {
-  await dotenv.load(fileName: "test.env");
+
+void main() {
   runApp(const MainApp());
 }
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _username = TextEditingController();
-  final TextEditingController _password = TextEditingController();
   final DatabaseService dbService = DatabaseService();
+  
+
+
 
   LoginPage({super.key});
 
@@ -34,7 +34,6 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextFormField(
-                controller: _username,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Username',
@@ -42,13 +41,14 @@ class LoginPage extends StatelessWidget {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your username';
-                  } 
+                  } //else if (value != _username) {
+                    //return 'Incorrect username';
+                  //}
                   return null;
                 },
               ),
               const SizedBox(height: 20),
               TextFormField(
-                controller: _password,
                 obscureText: true,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
@@ -57,33 +57,20 @@ class LoginPage extends StatelessWidget {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your password';
-                  } 
+                  } //else if (value != _password) {
+                    //return 'Incorrect password';
+                  //}
                   return null;
                 },
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () async {
+                onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    final username = _username.text;
-                    final password = _password.text;
-                    // Store the context
-                    final currentContext = context;
-                    final databaseService = DatabaseService();
-                    final userData = await databaseService.fetchData(username, password);
-                    if (userData.isNotEmpty) {
                     Navigator.push(
-                        currentContext,
-                        MaterialPageRoute(
-                          builder: (context) => DashboardPage(userData: username, key: password,),
-                        ),
-                      );
-                    } else {
-                      // Show error message for invalid username/password
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Invalid username or password')),
-                      );
-                    }
+                      context,
+                      MaterialPageRoute(builder: (context) => DashboardPage(key: UniqueKey())),
+                    );
                   }
                 },
                 child: const Text('Login'),
@@ -96,9 +83,8 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-
 class DashboardPage extends StatelessWidget {
-  DashboardPage({required Key key, required Map<String, dynamic> userData}) : super(key: key);
+  DashboardPage({required Key key}) : super(key: key);
 
   final List<String> buttonTexts = ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page 5', 'Page 6'];
   final List<String> datatext = ['Data 1', 'Data 2', 'Data 3', 'Data 4', 'Data 5', 'Data 6'];
@@ -181,6 +167,9 @@ class DashboardPage extends StatelessWidget {
 
 class MainApp extends StatelessWidget {
     const MainApp({super.key});
+
+  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -191,8 +180,11 @@ class MainApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => LoginPage(),
-        '/dashboard': (context) => DashboardPage(key: const Key('dashboard'), userData: const {},),
+        '/dashboard': (context) => DashboardPage(key: const Key('dashboard')),
       },
     );
   }
+
+  
 }
+      
