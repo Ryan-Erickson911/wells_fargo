@@ -1,6 +1,6 @@
-# flutter_app
+# Mock Banking App
 
-A new Flutter project.
+A new app for users to view personal information regarding their investment accounts.
 
 ## Getting Started
 
