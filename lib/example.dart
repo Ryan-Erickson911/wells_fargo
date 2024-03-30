@@ -27,7 +27,7 @@ void main() async {
     // The postgres server hosted locally doesn't have SSL by default. If you're
     // accessing a postgres server over the Internet, the server should support
     // SSL and you should swap out the mode with `SslMode.verifyFull`.
-    settings: ConnectionSettings(sslMode: SslMode.disable),
+    settings: const ConnectionSettings(sslMode: SslMode.disable),
   );
   print('has connection!');
 
