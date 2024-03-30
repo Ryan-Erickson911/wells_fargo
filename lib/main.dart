@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.blue[900],
           title: const Text('Accounts'),
+          elevation: 20.0
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -31,7 +32,7 @@ class MainApp extends StatelessWidget {
                     Text(
                       'Welcome back, First Name Last Name',
                        style: TextStyle(
-                      fontSize: 24.0, 
+                      fontSize: 28.0, 
                       fontWeight: FontWeight.bold, 
             ),
           ),
@@ -176,6 +177,7 @@ class MainApp extends StatelessWidget {
               label: 'Documents',
             ),
           ],
+          elevation: 20.0,
         ),
       ),
     );
