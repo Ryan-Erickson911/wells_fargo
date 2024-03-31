@@ -1,140 +1,183 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter/material.dart';
 
-enum UserData {
-  fname,
-  lname,
-  email,
-  pwrd,
-  balance,
-  investment,
-  expected,
-  collected,
-  zip,
-  zip2
-}
 
-class User {
-  
-  final String fname;
-  final String lname;
-  final String email;
-  final String pwrd;
-  final num balance;
-  final num investment;
-  final num expected;
-  final num collected;
-  final int zip;
-  final int zip2;
-
-  User(this.fname, this.lname, this.email, this.pwrd, this.balance, this.investment, this.expected, this.collected, this.zip, this.zip2);
-}
-
-///Need to change to only display "Account Information"
-class AccountPage extends StatefulWidget {
+class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
 
   @override
-  _AccountPageState createState() => _AccountPageState();
-}
-
-class _AccountPageState extends State<AccountPage> {
-  final _usernameController = TextEditingController();
-  final _websiteController = TextEditingController();
-
-  var _loading = true;
-
-  /// Called once a user id is received within `onAuthenticated()`
-  Future<void> _getProfile() async {
-    setState(() {
-      _loading = true;
-    });
-
-    try {
-      final userId = supabase.auth.currentUser!.id;
-      final data =
-          await supabase.from('profiles').select().eq('id', userId).single();
-      _usernameController.text = (data['username'] ?? '') as String;
-      _websiteController.text = (data['website'] ?? '') as String;
-    } on PostgrestException catch (error) {
-      SnackBar(
-        content: Text(error.message),
-        backgroundColor: Theme.of(context).colorScheme.error,
-      );
-    } catch (error) {
-      SnackBar(
-        content: const Text('Unexpected error occurred'),
-        backgroundColor: Theme.of(context).colorScheme.error,
-      );
-    } finally {
-      if (mounted) {
-        setState(() {
-          _loading = false;
-        });
-      }
-    }
-  }
-
-  Future<void> _signOut() async {
-    try {
-      await supabase.auth.signOut();
-    } on AuthException catch (error) {
-      SnackBar(
-        content: Text(error.message),
-        backgroundColor: Theme.of(context).colorScheme.error,
-      );
-    } catch (error) {
-      SnackBar(
-        content: const Text('Unexpected error occurred'),
-        backgroundColor: Theme.of(context).colorScheme.error,
-      );
-    } finally {
-      if (mounted) {
-        Navigator.of(context).pushReplacementNamed('/login');
-      }
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _getProfile();
-  }
-
-  @override
-  void dispose() {
-    _usernameController.dispose();
-    _websiteController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
-      body: _loading
-          ? const Center(child: CircularProgressIndicator())
-          : ListView(
-              padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
-              children: [
-                TextFormField(
-                  controller: _usernameController,
-                  decoration: const InputDecoration(labelText: 'User Name'),
-                ),
-                const SizedBox(height: 18),
-                TextFormField(
-                  controller: _websiteController,
-                  decoration: const InputDecoration(labelText: 'Website'),
-                ),
-                const SizedBox(height: 18),
-                ElevatedButton(
-                  onPressed: _loading ? null : _updateProfile,
-                  child: Text(_loading ? 'Saving...' : 'Update'),
-                ),
-                const SizedBox(height: 18),
-                TextButton(onPressed: _signOut, child: const Text('Sign Out')),
-              ],
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.grey,
+        appBar: AppBar(
+          backgroundColor: Colors.blue[900],
+          title: const Text('Accounts'),
+          elevation: 20.0
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+           Container(
+              margin: const EdgeInsets.only(bottom: 150.0), 
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(8.0),
+                child: const Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                    Text(
+                      'Welcome back, First Name Last Name',
+                       style: TextStyle(
+                      fontSize: 28.0, 
+                      fontWeight: FontWeight.bold, 
             ),
+          ),
+          Text(
+            'Account Info/Overview.',
+            style: TextStyle(
+              fontSize: 18.0, 
+            ),
+          ),
+        ],
+      ),
+    ),
+  
+),
+             Container(
+  margin: const EdgeInsets.symmetric(vertical: 10.0), // add top and bottom margins
+  child: Card(
+    elevation: 5.0,
+    child: Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: <Widget>[
+    const Text(
+      'Cash Balance',
+      style: TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    Container(
+      margin: const EdgeInsets.only(top: 10.0), // add top margin
+      child: const Text(
+        'Value from SQL Server',
+        style: TextStyle(
+          fontSize: 24.0, // larger font size
+          fontWeight: FontWeight.bold, // bolder font
+        ),
+      ),
+    ),
+  ],
+),
+        ],
+      ),
+    ),
+  ),
+),
+              Container(
+  margin: const EdgeInsets.symmetric(vertical: 10.0), // add top and bottom margins
+  child: Card(
+    elevation: 5.0,
+    child: Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: <Widget>[
+    const Text(
+      'Investment Amount',
+      style: TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    Container(
+      margin: const EdgeInsets.only(top: 10.0), // add top margin
+      child: const Text(
+        'Value from SQL Server',
+        style: TextStyle(
+          fontSize: 24.0, // larger font size
+          fontWeight: FontWeight.bold, // bolder font
+        ),
+      ),
+    ),
+  ],
+),
+        ],
+      ),
+    ),
+  ),
+),
+            Container(
+  margin: const EdgeInsets.symmetric(vertical: 10.0), // add top and bottom margins
+  child: Card(
+    elevation: 5.0,
+    child: Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: <Widget>[
+    const Text(
+      'Expected Monthly Income',
+      style: TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    Container(
+      margin: const EdgeInsets.only(top: 10.0), // add top margin
+      child: const Text(
+        'Value from SQL Server',
+        style: TextStyle(
+          fontSize: 24.0, // larger font size
+          fontWeight: FontWeight.bold, // bolder font
+        ),
+      ),
+    ),
+  ],
+),
+        ],
+      ),
+    ),
+  ),
+),
+  
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Accounts',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined),
+              label: 'Map',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.newspaper),
+              label: 'Documents',
+            ),
+          ],
+          elevation: 20.0,
+        ),
+      ),
     );
   }
 }

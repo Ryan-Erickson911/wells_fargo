@@ -7,12 +7,13 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
   bool _redirecting = false;
+  final supabase = Supabase.instance.client;
   late final TextEditingController _emailController = TextEditingController();
   late final TextEditingController _passwordController = TextEditingController();
 
