@@ -36,12 +36,12 @@ class _LoginPageState extends State<LoginPage> {
     } on AuthException catch (error) {
       SnackBar(
         content: Text(error.message),
-        backgroundColor: Theme.of(context).colorScheme.error,
+        backgroundColor: Theme.of(context.mounted as BuildContext).colorScheme.error,
       );
     } catch (error) {
       SnackBar(
         content: const Text('Unexpected error occurred'),
-        backgroundColor: Theme.of(context).colorScheme.error,
+        backgroundColor: Theme.of(context.mounted as BuildContext).colorScheme.error,
       );
     } finally {
       if (mounted) {
@@ -84,6 +84,10 @@ class _LoginPageState extends State<LoginPage> {
           TextFormField(
             controller: _emailController,
             decoration: const InputDecoration(labelText: 'Email'),
+          ),
+          TextFormField(
+            controller: _passwordController,
+            decoration: const InputDecoration(labelText: 'Password'),
           ),
           const SizedBox(height: 18),
           ElevatedButton(
