@@ -1,4 +1,4 @@
-name: dashboard_v2
+name: wells_fargo
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   supabase_flutter: ^2.3.4
 
+  flutter_gen: any
+  flutter_localizations: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
