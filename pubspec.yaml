@@ -13,7 +13,7 @@ dependencies:
   supabase_flutter: ^2.3.4
 
   flutter_gen: any
-  flutter_localizations: any
+  flutter_localization: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
