@@ -63,6 +63,7 @@ class _AccountPageState extends State<AccountPage> {
             const Text('Account Info/Overview', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
             Container(
               width: double.infinity,
+<<<<<<< HEAD
               margin: const EdgeInsets.only(top: 40.0), // Add top margin
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -101,6 +102,22 @@ class _AccountPageState extends State<AccountPage> {
                     blurRadius: 7,
                     offset: const Offset(0, 3),
                   ),
+=======
+              padding: const EdgeInsets.all(8.0),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Welcome Mia Johnson',
+                    style: TextStyle(
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue
+                      
+                    ),
+                  ),
+                  
+>>>>>>> 424353d357d143bdb55233ce36e6c34065adaa5f
                 ],
               ),
               child: Padding(
@@ -169,6 +186,122 @@ class _AccountPageState extends State<AccountPage> {
                 ),
               ),
             ),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            // Display fetched data
+            Expanded(
+              child: ListView.builder(
+                itemCount: testData.length,
+                itemBuilder: (context, index) {
+                  final item = testData[index];
+                  return ListTile(
+                    title: Text(item['fname']),
+                    subtitle: Text(item['lname']),
+                  );
+                },
+              ),
+            ),
+          Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+        Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+        Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+        Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+=======
+            // // Display fetched data
+            // Expanded(
+            //   child: ListView.builder(
+            //     itemCount: testData.length,
+            //     itemBuilder: (context, index) {
+            //       final item = testData[index];
+            //       return ListTile(
+            //         title: Text(item['fname']),
+            //         subtitle: Text(item['lname']),
+            //       );
+            //     },
+            //   ),
+            // ),
+>>>>>>> 22017980fc782c0b458ff789140f1bba0dfa33b5
+>>>>>>> 424353d357d143bdb55233ce36e6c34065adaa5f
           ],
         ),
       ),
