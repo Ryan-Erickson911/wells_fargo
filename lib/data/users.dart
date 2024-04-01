@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    final supabase = Supabase.instance.client.rpc('login_test');
+    final test = Supabase.instance.client.from('test').select('fname,lname');
+    print(test);
+
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.grey,
@@ -28,7 +31,7 @@ class AccountPage extends StatelessWidget {
                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                     Text(
-                      'Welcome back, First Name Last Name',
+                      'Welcome',
                        style: TextStyle(
                       fontSize: 28.0, 
                       fontWeight: FontWeight.bold, 

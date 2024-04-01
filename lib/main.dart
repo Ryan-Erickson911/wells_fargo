@@ -31,7 +31,7 @@ Future<void> main() async {
          ),
         ),
      ),
-      initialRoute: '/',
+      initialRoute: '/account',
       routes: <String, WidgetBuilder>{
         //'/': (_) => const SplashPage(),
         //'/login': (_) => const LoginPage(),
