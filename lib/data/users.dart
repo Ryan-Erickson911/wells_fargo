@@ -21,6 +21,8 @@ class _AccountPageState extends State<AccountPage> {
     fetchData();
   }
 
+
+
   Future<void> fetchData() async {
     final response = await supabase.rpc('login_test');
 
@@ -80,8 +82,8 @@ class _AccountPageState extends State<AccountPage> {
                 itemBuilder: (context, index) {
                   final item = testData[index];
                   return ListTile(
-                    title: Text(item['fname'] ?? ''),
-                    subtitle: Text(item['lname'] ?? ''),
+                    title: Text(item['fname']),
+                    subtitle: Text(item['lname']),
                   );
                 },
               ),
