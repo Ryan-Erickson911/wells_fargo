@@ -60,18 +60,15 @@ class _AccountPageState extends State<AccountPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'Welcome',
+                    'Welcome Mia Johnson',
                     style: TextStyle(
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold,
+                      color: Colors.blue
+                      
                     ),
                   ),
-                  Text(
-                    'Account Info/Overview.',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                    ),
-                  ),
+                  
                 ],
               ),
             ),
@@ -88,6 +85,90 @@ class _AccountPageState extends State<AccountPage> {
                 },
               ),
             ),
+          Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+        Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+        Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+        Container(
+      margin: const EdgeInsets.all(8.0), // Add margin around the widget
+      child: const Card(
+        elevation: 5.0, // Raise the border of the widget
+        child: SizedBox(
+          width: double.infinity, // Make the widget fill the width of the screen
+          height: 100, // Set the height of the widget
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Top Left Text'), // Text box aligned to the top left
+                Text('Bottom Left Text'), // Text box aligned to the bottom left
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
           ],
         ),
       ),

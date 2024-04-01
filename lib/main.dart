@@ -1,42 +1,168 @@
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-// import '/pages/login.dart';
-import 'data/users.dart';
-const supabaseUrl = 'https://jddmwoebkyurjgerqyyg.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpkZG13b2Via3l1cmpnZXJxeXlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE4MzEyNzAsImV4cCI6MjAyNzQwNzI3MH0.R84BMrHwGOG1cHAEkB9wlITJki1Jev78ggj5A1AwNWs';
 
-Future<void> main() async {
-  await Supabase.initialize(url: supabaseUrl, anonKey: supabaseKey);
+void main() {
   runApp(const MyApp());
 }
 
-////////////////Should try to make main page look like this for navigation///////////////////////
-///
- class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-   @override   Widget build(BuildContext context) {
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Supabase Flutter',
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.green,
-     textButtonTheme: TextButtonThemeData(
-         style: TextButton.styleFrom(
-            foregroundColor: Colors.green,
-          ),
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blue[900],
+          title: const Center(child: Text('Account', style: TextStyle(fontWeight: FontWeight.bold))),
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-           foregroundColor: Colors.white,
-           backgroundColor: Colors.green,
-         ),
+        body: Container(
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [Colors.grey[900]!, Colors.grey[300]!],
+    ),
+  ),
+  child: Center(
+    child: Container(
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20.0), // Add top padding
+        child: Column(
+          children: [
+            Text('Welcome Back, Mia Johnson', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.blue[900])),
+            const Text('Account Info/Overview', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 40.0), // Add top margin
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Balance', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900])),
+                    const Divider(color: Colors.grey),
+                    Text('100.00', style: TextStyle(fontSize: 20, color: Colors.blue[900])),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 40.0), // Add top margin
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Investment', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900])),
+                    const Divider(color: Colors.grey),
+                    Text('500.00', style: TextStyle(fontSize: 20, color: Colors.blue[900])),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 40.0), // Add top margin
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Expected', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900])),
+                    const Divider(color: Colors.grey),
+                    Text('120.00', style: TextStyle(fontSize: 20, color: Colors.blue[900])),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 40.0), // Add top margin
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Collected', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue[900])),
+                    const Divider(color: Colors.grey),
+                    Text('120.00', style: TextStyle(fontSize: 20, color: Colors.blue[900])),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
-     ),
-      initialRoute: '/account',
-      routes: <String, WidgetBuilder>{
-        //'/': (_) => const SplashPage(),
-        //'/login': (_) => const LoginPage(),
-        '/account': (_) => const AccountPage(),
-     },
-   );
+      ),
+    ),
+  ),
+),
+bottomNavigationBar: BottomNavigationBar(
+    items: const <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Account',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.map),
+        label: 'Map',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.newspaper),
+        label: 'Documents',
+      ),
+    ],
+  ),
+      ),
+    );
   }
 }
