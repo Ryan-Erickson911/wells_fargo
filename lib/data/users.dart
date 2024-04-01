@@ -21,18 +21,18 @@ class _AccountPageState extends State<AccountPage> {
     fetchData();
   }
 
-
-
   Future<void> fetchData() async {
-    final response = await supabase.rpc('login_test');
+    final myQuery = supabase.from('test').select();
+    final response = await myQuery.eq('username', 'email1@some.com');
 
-    if (response.error != null) {
+
+    if (response.isEmpty) {
       // Handle error
-      print('Error fetching data: ${response.error?.message}');
+      print('Error fetching data');
     } else {
       // Update state with fetched data
       setState(() {
-        testData = response.data as List<Map<String, dynamic>>;
+        testData = response.single as List<Map<String, dynamic>>;
       });
     }
   }
@@ -75,19 +75,19 @@ class _AccountPageState extends State<AccountPage> {
                 ],
               ),
             ),
-            // Display fetched data
-            Expanded(
-              child: ListView.builder(
-                itemCount: testData.length,
-                itemBuilder: (context, index) {
-                  final item = testData[index];
-                  return ListTile(
-                    title: Text(item['fname']),
-                    subtitle: Text(item['lname']),
-                  );
-                },
-              ),
-            ),
+            // // Display fetched data
+            // Expanded(
+            //   child: ListView.builder(
+            //     itemCount: testData.length,
+            //     itemBuilder: (context, index) {
+            //       final item = testData[index];
+            //       return ListTile(
+            //         title: Text(item['fname']),
+            //         subtitle: Text(item['lname']),
+            //       );
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
