@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '/pages/login.dart';
+// import '/pages/login.dart';
 import 'data/users.dart';
 const supabaseUrl = 'https://jddmwoebkyurjgerqyyg.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpkZG13b2Via3l1cmpnZXJxeXlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE4MzEyNzAsImV4cCI6MjAyNzQwNzI3MH0.R84BMrHwGOG1cHAEkB9wlITJki1Jev78ggj5A1AwNWs';
@@ -34,7 +34,7 @@ Future<void> main() async {
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         //'/': (_) => const SplashPage(),
-        '/login': (_) => const LoginPage(),
+        //'/login': (_) => const LoginPage(),
         '/account': (_) => const AccountPage(),
      },
    );

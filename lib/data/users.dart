@@ -1,12 +1,12 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter/material.dart';
 
-final supabase = Supabase.instance.client;
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final supabase = Supabase.instance.client.rpc('login_test');
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.grey,
