@@ -109,6 +109,4 @@ Future<void> signInWithEmail() async {
   final Session? session = res.session;
   final User? user = res.user;
 }
-
-
 // page link: https://supabase.com/docs/guides/getting-started/tutorials/with-flutter

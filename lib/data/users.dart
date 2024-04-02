@@ -13,7 +13,8 @@ class _AccountPageState extends State<AccountPage> {
   static const supabaseUrl = 'https://jddmwoebkyurjgerqyyg.supabase.co';
   static const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpkZG13b2Via3l1cmpnZXJxeXlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTE4MzEyNzAsImV4cCI6MjAyNzQwNzI3MH0.R84BMrHwGOG1cHAEkB9wlITJki1Jev78ggj5A1AwNWs';
   final supabase = SupabaseClient(supabaseUrl, supabaseKey);
-  List testData = [];
+  List<Map<String, dynamic>> testData = [];
+
   @override
   void initState() {
     super.initState();
@@ -22,8 +23,7 @@ class _AccountPageState extends State<AccountPage> {
 
   Future<void> fetchData() async {
     final myQuery = supabase.from('test').select();
-    final response = await myQuery.eq('username', 'email1@some.com');
-    final String balance = response
+    final response = await myQuery.eq('username', 'email3@some.com');
 
     if (response.isEmpty) {
       //Handle error
@@ -31,7 +31,7 @@ class _AccountPageState extends State<AccountPage> {
     } else {
       //Update state with fetched data
       setState(() {
-        testData = response.toList() as List;
+        testData = response;
       });
     }
   }
@@ -54,7 +54,7 @@ class _AccountPageState extends State<AccountPage> {
   ),
   child: Center(
     child: Container(
-      width: double.infinity,s
+      width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.only(top: 20.0), // Add top padding
         child: Column(
