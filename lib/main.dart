@@ -40,3 +40,5 @@ Future<void> main() async {
    );
   }
 }
+
+// check this link out for an app that uses a login page using flutter...lol -> https://www.loginradius.com/blog/engineering/guest-post/authenticating-flutter-apps/
