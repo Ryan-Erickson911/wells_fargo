@@ -38,7 +38,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
-      if (res.toString()==Null) {
+      if (res.toString()!=Null) {
         Navigator.push(context,MaterialPageRoute(builder: (context) => HomePageWidget(email: emailController.text, password: passwordController.text))); //Homepage Route
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

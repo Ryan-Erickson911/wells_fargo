@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../login/login.dart';
+
 class HomePageWidget extends StatefulWidget {
   final String email;
   final String password;
@@ -17,7 +19,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     
   Future<List<Map<String, dynamic>>> readData() async {
     List<Map<String, dynamic>>? res;
-    res = await supabase.from('test').select().eq('username', widget.email).eq('pwrd', widget.email);
+    res = await supabase.from('test').select().eq('username', widget.email).eq('pwrd', widget.password);
     return (res);
   }
   
@@ -225,12 +227,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           const SizedBox(height: 20),
                           TextButton(
                              onPressed: () async {
-                            //   await _apiClient.logout(widget.accesstoken);
-                            //   Navigator.pushReplacement(
-                            //       context,
-                            //       MaterialPageRoute(
-                            //           builder: (context) =>
-                            //               const LoginScreen()));
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const LoginPageWidget()));
                             },
                             style: TextButton.styleFrom(
                                 backgroundColor: Colors.redAccent.shade700,
