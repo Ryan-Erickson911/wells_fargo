@@ -35,7 +35,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
  @override
   Widget build(BuildContext context) {
+  int selectedIndex = 0;
   var size = MediaQuery.of(context).size;
+  void onItemTapped(int index) {
+  setState(() {
+    selectedIndex = index;
+   }
+ );
+}
   return Scaffold(
     backgroundColor: Colors.white,
     body: SizedBox(
@@ -65,7 +72,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               return Container(
                 width: size.width,
                 height: size.height,
-                color: Colors.blueGrey.shade400,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.blue, Colors.blueGrey.shade400],
+                  ),
+                ),
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: Padding(
@@ -105,7 +118,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             "Welcome Back, $fname $lname",
                             style: const TextStyle(
                               fontSize: 25,
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -138,7 +151,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 5),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF48484A),
+                            color: Colors.white54,
                             borderRadius: BorderRadius.circular(5)),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -147,11 +160,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             children: [
                               const Text('Current Balance:',
                                 style: TextStyle(
-                                  fontSize: 16, color: Colors.white38)),
+                                  fontSize: 16, color: Colors.black)),
                               const SizedBox(height: 7),
                             Text(balance,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.white)),
+                                        fontSize: 19, color: Colors.black)),
                               ],
                             ),
                           ),
@@ -161,7 +174,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 5),
                             decoration: BoxDecoration(
-                                color: const Color(0xFF48484A),
+                                color: Colors.white54,
                                 borderRadius: BorderRadius.circular(5)),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -170,11 +183,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               children: [
                                 const Text('Total Amount Collected:',
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.white38)),
+                                        fontSize: 16, color: Colors.black)),
                                 const SizedBox(height: 7),
                                 Text(collected,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.white)),
+                                        fontSize: 19, color: Colors.black)),
                               ],
                             ),
                           ),
@@ -184,7 +197,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 5),
                             decoration: BoxDecoration(
-                                color: const Color(0xFF48484A),
+                                color: Colors.white54,
                                 borderRadius: BorderRadius.circular(5)),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -193,11 +206,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               children: [
                                 const Text('Investment Value:',
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.white38)),
+                                        fontSize: 16, color: Colors.black)),
                                 const SizedBox(height: 7),
                                 Text(investment,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.white)),
+                                        fontSize: 19, color: Colors.black)),
                               ],
                             ),
                           ),
@@ -207,7 +220,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 5),
                             decoration: BoxDecoration(
-                                color: const Color(0xFF48484A),
+                                color: Colors.white54,
                                 borderRadius: BorderRadius.circular(5)),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -216,11 +229,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               children: [
                                 const Text('Expected Amount (Add Expected Date?):', //testing long string -> remove question for demo
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.white38)),
+                                        fontSize: 16, color: Colors.black)),
                                 const SizedBox(height: 7),
                                 Text(expected,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.white)),
+                                        fontSize: 19, color: Colors.black)),
                               ],
                             ),
                           ),
@@ -254,7 +267,27 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               }
               return const SizedBox();},
         )
-      )
+      ),
+    bottomNavigationBar: BottomNavigationBar(
+      backgroundColor: Colors.blue,
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.map),
+          label: 'Map',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.newspaper),
+          label: 'Documents',
+        ),
+      ],
+      currentIndex: selectedIndex,
+      selectedItemColor: Colors.amber[800],
+      onTap: onItemTapped,
+      ),
     );
   }
 }
