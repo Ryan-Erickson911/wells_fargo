@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     bool? isLogin = sp.getBool('isLogin') ?? false;
 
     if(isLogin){
-      Timer(const Duration(seconds: 2), () {
+      Timer(const Duration(seconds: 5), () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const HomePageWidget(email: "email99@error.com",password: "error123")));
     });
@@ -46,8 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Image(
           height: double.infinity,
           fit: BoxFit.fitHeight,
-          image: NetworkImage(
-              "https://images.unsplash.com/photo-1557682268-e3955ed5d83f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=282&q=80")),
+          image: ExactAssetImage("assets/images/splashscreen.jpg")),
     );
   }
 }

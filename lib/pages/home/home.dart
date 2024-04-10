@@ -6,8 +6,8 @@ import '../login/login.dart';
 class HomePageWidget extends StatefulWidget {
   final String email;
   final String password;
+  static const List pages = [];
   const HomePageWidget({super.key, required this.email, required this.password});
-
   @override
   State<HomePageWidget> createState() => _HomePageWidgetState();
 }
@@ -269,9 +269,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         )
       ),
     bottomNavigationBar: BottomNavigationBar(
+      key: ,
       backgroundColor: Colors.blue,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
+          key: ,
           icon: Icon(Icons.home),
           label: 'Home',
         ),
