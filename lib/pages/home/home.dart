@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'map.dart';
+import 'docs.dart';
 
 import '../login/login.dart';
 
@@ -16,6 +18,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final supabase = Supabase.instance.client;
+  
     
   Future<List<Map<String, dynamic>>> readData() async {
     List<Map<String, dynamic>>? res;
@@ -32,18 +35,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void dispose() {
     super.dispose();
   }
-
- @override
+  
+  @override
   Widget build(BuildContext context) {
-  int selectedIndex = 0;
   var size = MediaQuery.of(context).size;
-  void onItemTapped(int index) {
-  setState(() {
-    selectedIndex = index;
-   }
- );
-}
   return Scaffold(
+    key: scaffoldKey,
     backgroundColor: Colors.white,
     body: SizedBox(
       width: size.width,
@@ -271,24 +268,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     bottomNavigationBar: BottomNavigationBar(
       key: ,
       backgroundColor: Colors.blue,
-      items: const <BottomNavigationBarItem>[
+      items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           key: ,
           icon: Icon(Icons.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.map),
+          //key: mapKey,
+          icon: const Icon(Icons.map),
           label: 'Map',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.newspaper),
+          //key: docsKey,
+          icon: const Icon(Icons.newspaper),
           label: 'Documents',
         ),
       ],
-      currentIndex: selectedIndex,
-      selectedItemColor: Colors.amber[800],
-      onTap: onItemTapped,
       ),
     );
   }
