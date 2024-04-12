@@ -15,26 +15,6 @@ class MapPage extends StatelessWidget {
       body: const Center(
         child: Text('This is a placeholder page'),
       ),
-    bottomNavigationBar: BottomNavigationBar(
-      backgroundColor: Colors.blue,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          //key: scaffoldKey,
-          icon: const Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          key: mapKey,
-          icon: const Icon(Icons.map),
-          label: 'Map',
-        ),
-        BottomNavigationBarItem(
-          //key: docsKey,
-          icon: const Icon(Icons.newspaper),
-          label: 'Documents',
-        ),
-      ],
-      ),
-    );
+      );
   }
 }

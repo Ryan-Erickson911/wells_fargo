@@ -29,9 +29,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
   Future<void> login() async {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Retriving your info...'),
-        backgroundColor: Color.fromARGB(255, 21, 221, 111),
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Retriving your info...'),
+        backgroundColor: Colors.green.shade300,
       ));
 
       dynamic res = await supabase.from('test').select().eq('username', emailController.text).eq('pwrd', passwordController.text);
@@ -144,6 +144,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
+                                      color: Colors.white,=
                                     ),
                                   ),
                                 ),

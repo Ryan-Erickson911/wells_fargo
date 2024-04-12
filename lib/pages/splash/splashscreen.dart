@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     }else{
-      Timer(const Duration(seconds: 5), () {
+      Timer(const Duration(seconds: 2), () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const LoginPageWidget()));
     });

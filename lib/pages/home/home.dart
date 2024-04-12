@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../splash/splashscreen.dart';
 import 'map.dart';
 import 'docs.dart';
 
-import '../login/login.dart';
 
 class HomePageWidget extends StatefulWidget {
   final String email;
   final String password;
-  static const List pages = [];
+  static List pages = [MapPage(),DocsPage()];
   const HomePageWidget({super.key, required this.email, required this.password});
   @override
   State<HomePageWidget> createState() => _HomePageWidgetState();
@@ -36,6 +36,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.dispose();
   }
   
+  int currentIndex = 0;
+  void pageswitcher(int index){
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
   var size = MediaQuery.of(context).size;
@@ -86,27 +93,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Align(
-                          alignment: Alignment.topCenter,
-                          child: Container(
-                            padding: const EdgeInsets.all(5),
-                            clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.transparent,
-                              border: Border.all(
-                                  width: 1, color: Colors.blue.shade100),
-                            ),
+                          alignment: Alignment.topLeft,
                           child: Container(
                             height: 100,
-                            width: 100,
+                            width: 350,
                             clipBehavior: Clip.hardEdge,
                             decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
+                              shape: BoxShape.rectangle,
                               ),
                             child: const Image(
-                              image: AssetImage('assets/image.png'), // profile pic needs to be replaced with company logo 
+                              image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
                               fit: BoxFit.cover),
-                          ),),
+                          ),
                         ),
                         const SizedBox(height: 10),
                         Align(
@@ -241,7 +239,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const LoginPageWidget()));
+                                          const SplashScreen()));
                             },
                             style: TextButton.styleFrom(
                                 backgroundColor: Colors.redAccent.shade700,
@@ -266,26 +264,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         )
       ),
     bottomNavigationBar: BottomNavigationBar(
-      key: ,
+      onTap: pageswitcher,
       backgroundColor: Colors.blue,
-      items: <BottomNavigationBarItem>[
+      items: const [
         BottomNavigationBarItem(
-          key: ,
           icon: Icon(Icons.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          //key: mapKey,
-          icon: const Icon(Icons.map),
+          icon: Icon(Icons.map),
           label: 'Map',
         ),
         BottomNavigationBarItem(
-          //key: docsKey,
-          icon: const Icon(Icons.newspaper),
+          icon: Icon(Icons.newspaper),
           label: 'Documents',
         ),
-      ],
-      ),
+      ],),
     );
   }
 }
