@@ -144,7 +144,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,=
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ),
