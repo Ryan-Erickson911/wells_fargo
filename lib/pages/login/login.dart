@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import '../../../index.dart';
 import '../../../data/validator.dart';
@@ -36,8 +38,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
       dynamic res = await supabase.from('test').select().eq('username', emailController.text).eq('pwrd', passwordController.text);
 
+      // ignore: duplicate_ignore
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
+      // ignore: unrelated_type_equality_checks
       if (res.toString()!=Null) {
         Navigator.push(context,MaterialPageRoute(builder: (context) => HomePageWidget(email: emailController.text, password: passwordController.text))); //Homepage Route
       } else {
@@ -144,7 +149,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white,=
+                                      color: Colors.white,
                                     ),
                                   ),
                                 ),

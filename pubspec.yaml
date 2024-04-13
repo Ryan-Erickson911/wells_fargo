@@ -28,6 +28,8 @@ dependencies:
   google_fonts: ^6.2.1
   provider: ^6.1.2
   go_router: ^13.2.3
+  google_maps_flutter: ^2.6.0
+  uuid: ^4.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -39,3 +41,4 @@ flutter:
   assets: 
     - assets/images/splashscreen.jpg
     - assets/images/smallslogan.png
+    - assets/images/2.0x/heart.png
