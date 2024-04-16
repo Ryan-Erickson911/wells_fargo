@@ -1,59 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../splash/splashscreen.dart';
-import 'package:go_router/go_router.dart';
-// ignore: depend_on_referenced_packages
 import '../map/place_tracker_app.dart';
-
-final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _shellNavigatorKey = GlobalKey<NavigatorState>();
-final GoRouter goRouter = GoRouter(
-  initialLocation: '/',
-  navigatorKey: _rootNavigatorKey,
-  debugLogDiagnostics: true,
-  routes: [
-    ShellRoute(
-      navigatorKey:  _shellNavigatorKey,
-      pageBuilder: (context, state, child) {
-        return NoTransitionPage(
-            child: ScaffoldWithNavigationBar(
-          location: state.uri.toString(),
-          child: child,
-        ));
-      },
-      routes: [
-        GoRoute(
-          path:'/',
-          parentNavigatorKey: _shellNavigatorKey,
-          pageBuilder: (context, state) {
-            return const NoTransitionPage(
-              child: HomePageWidget(email: 'email', password: 'password')
-            );
-          },
-        ),
-        GoRoute(
-          path:"/map",
-          parentNavigatorKey: _shellNavigatorKey,
-          pageBuilder: (context, state) => const NoTransitionPage(
-                child: PlaceTrackerApp(),
-              ),               
-            ),
-        GoRoute(
-          path:'/docs',
-          parentNavigatorKey: _shellNavigatorKey,
-          pageBuilder: (context, state) => const NoTransitionPage(
-              child: SplashScreen()),
-          ),
-      ],
-    ),
-  ],
-);
 
 class HomePageWidget extends StatefulWidget {
   final String email;
   final String password;
   const HomePageWidget({super.key, required this.email, required this.password});
-  // private navigators
 
   @override
   State<HomePageWidget> createState() => _HomePageWidgetState();
@@ -63,7 +16,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final supabase = Supabase.instance.client;
-  final router = goRouter;
 
   Future<List<Map<String, dynamic>>> readData() async {
     List<Map<String, dynamic>>? res;
@@ -81,12 +33,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.dispose();
   }
 
-  
   @override
   Widget build(BuildContext context,) {
   var size = MediaQuery.of(context).size;
   return Scaffold(
-    key: scaffoldKey,
     backgroundColor: Colors.white,
     body: SizedBox(
       width: size.width,
@@ -301,91 +251,28 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               }
               return const SizedBox();},
      )
-  ),  
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class ScaffoldWithNavigationBar extends StatefulWidget {
-  String location;
-  ScaffoldWithNavigationBar({super.key, required this.child, required this.location});
-  final Widget child;
-
-   @override
-  State<ScaffoldWithNavigationBar> createState() => _ScaffoldWithNavBarState(); 
-}
-class _ScaffoldWithNavBarState extends State<ScaffoldWithNavigationBar> {
-  int _currentIndex = 0;
-
-  static const List<MyCustomBottomNavBarItem> tabs = [
-    MyCustomBottomNavBarItem(
-      icon: Icon(Icons.home),
-      activeIcon: Icon(Icons.home),
-      label: 'HOME',
-      initialLocation: '/',
     ),
-    MyCustomBottomNavBarItem(
-      icon: Icon(Icons.map_outlined),
-      activeIcon: Icon(Icons.map),
-      label: 'MAPS',
-      initialLocation: '/maps',
-    ),
-    MyCustomBottomNavBarItem(
-      icon: Icon(Icons.list_alt_outlined),
-      activeIcon: Icon(Icons.list_alt),
-      label: 'DOCS',
-      initialLocation: '/docs',
-    ),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    const labelStyle = TextStyle(fontFamily: 'Roboto');
-    return Scaffold(
-      body: SafeArea(child: widget.child),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: labelStyle,
-        unselectedLabelStyle: labelStyle,
-        selectedItemColor: const Color(0xFF434343),
-        selectedFontSize: 12,
-        unselectedItemColor: const Color(0xFF838383),
-        showUnselectedLabels: true,
+    bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        onTap: (int index) {
-          _goOtherTab(context, index);
-        },
-        currentIndex: widget.location == '/'
-            ? 0
-            : widget.location == '/maps'
-                ? 1
-                : widget.location == '/docs'
-                ? 2
-                : 3,
-        items: tabs,
-      ),
-    );
-  }
-
-  void _goOtherTab(BuildContext context, int index) {
-    if (index == _currentIndex) return;
-    GoRouter router = GoRouter.of(context);
-    String location = tabs[index].initialLocation;
-
-    setState(() {
-      _currentIndex = index;
-    });
-  router.go(location);
-  }
-}
-
-class MyCustomBottomNavBarItem extends BottomNavigationBarItem {
-  final String initialLocation;
-
-  const MyCustomBottomNavBarItem(
-      {required this.initialLocation,
-      required super.icon,
-      super.label,
-      Widget? activeIcon})
-      : super(activeIcon: activeIcon ?? icon);
+        backgroundColor: Colors.green[100],
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book_online),
+            label: 'Page 1',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.read_more),
+            label: 'Page 2',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),  
+  );
+ }
 }

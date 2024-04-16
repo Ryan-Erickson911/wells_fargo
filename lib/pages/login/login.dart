@@ -5,6 +5,8 @@ import '../../../index.dart';
 import '../../../data/validator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../home/home.dart';
+
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({super.key});
 
