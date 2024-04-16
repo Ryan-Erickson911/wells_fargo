@@ -27,16 +27,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  
   bool _showPassword = false;
 
   Future<void> login() async {
+    
+
     if (_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: const Text('Retriving your info...'),
         backgroundColor: Colors.green.shade300,
       ));
 
-      dynamic res = await supabase.from('test').select().eq('username', emailController.text).eq('pwrd', passwordController.text);
+      dynamic res = await supabase.from('test').select().eq('username', emailController.text.replaceAll(' ', '')).eq('pwrd', passwordController.text.replaceAll(' ', ''));
 
       // ignore: duplicate_ignore
       // ignore: use_build_context_synchronously
@@ -44,7 +47,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
       // ignore: unrelated_type_equality_checks
       if (res.toString()!=Null) {
-        Navigator.push(context,MaterialPageRoute(builder: (context) => MainNavigator(navemail: emailController.text, navpassword: passwordController.text))); //Homepage Route
+        Navigator.push(context,MaterialPageRoute(builder: (context) => MainNavigator(navemail: emailController.text.replaceAll(' ', ''), navpassword: passwordController.text.replaceAll(' ', '')))); //Homepage Route
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text('Error'), backgroundColor: Colors.red.shade300,));
@@ -114,7 +117,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               suffixIcon: GestureDetector(
                                 onTap: () {
                                   setState(
-                                      () => _showPassword = !_showPassword);
+                                      () => _showPassword = _showPassword);
                                 },
                                 child: Icon(
                                   _showPassword

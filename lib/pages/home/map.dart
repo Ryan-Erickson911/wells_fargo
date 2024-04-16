@@ -26,19 +26,19 @@ class _MapPageState extends State<MapPage> {
           title: const Text('Investment Locations'),
           backgroundColor: const Color.fromARGB(255, 13, 227, 255),
         ),
-        body: GoogleMap(
-            onMapCreated: _onMapCreated,
-            initialCameraPosition: CameraPosition(
-              target: _center,
-              zoom: 11.0,
-            ),
-        markers: {
-         const Marker(
-               markerId: MarkerId("Investment 1"),
-               position: LatLng(-33.86, 151.20),
-            ), // Marker
-      },  // CameraPosition
-        ), // GoogleMap
+        body: const Text("This is a page"),//GoogleMap(
+      //       onMapCreated: _onMapCreated,
+      //       initialCameraPosition: CameraPosition(
+      //         target: _center,
+      //         zoom: 11.0,
+      //       ),
+      //   markers: {
+      //    const Marker(
+      //          markerId: MarkerId("Investment 1"),
+      //          position: LatLng(-33.86, 151.20),
+      //       ), // Marker
+      // },  // CameraPosition
+      //   ), // GoogleMap
       ), // Scaffold
     ); // MaterialApp
   }
