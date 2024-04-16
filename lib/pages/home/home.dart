@@ -36,6 +36,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context,) {
   var size = MediaQuery.of(context).size;
   return Scaffold(
+    appBar: AppBar(
+            title: const Image(
+                          image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
+                          fit: BoxFit.cover),
+                          backgroundColor: Colors.blue,
+                          automaticallyImplyLeading: false,
+                  ),
     backgroundColor: Colors.white,
     body: SizedBox(
       width: size.width,
@@ -75,72 +82,45 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   physics: const BouncingScrollPhysics(),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 50, horizontal: 20),
+                        vertical: 10, horizontal: 10),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Container(
-                            height: 100,
-                            width: 350,
-                            clipBehavior: Clip.hardEdge,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              ),
-                            child: const Image(
-                              image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
-                              fit: BoxFit.cover),
-                          ),
-                        ),
                         const SizedBox(height: 10),
-                        Container(
-                          width: size.width,
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 5, horizontal: 5),
-                          decoration: BoxDecoration(
-                            color: Colors.white54,
-                            borderRadius: BorderRadius.circular(5)),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                            Text(
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                          Text(
                             "Welcome Back, $fname $lname",
                             style: const TextStyle(
-                              fontSize: 25,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 25,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          const Divider(
-                                color: Colors.grey, 
-                                height: 20, 
-                                ),
-                            Text(
+                          Text(
                             email,
                             style: const TextStyle(
-                              fontSize: 18, color: Colors.black),
+                            fontSize: 18,
+                            color: Colors.black,
+                            ),
                           ),
-                      ],
-                    ),
-                    ),
+                          ],
+                        ),
                         
                         const SizedBox(height: 20),
-                        Container(
-                          width: size.width,
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.white54,
-                            borderRadius: BorderRadius.circular(5)),
-                          child: const Text('Account Information:',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700)),
-                        ),
+                        const Text('Account Information',
+                          style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold)),
+                          const Divider(
+                                color: Colors.black, 
+                                height: 20, 
+                                ),
                         const SizedBox(height: 20),
                         Container(
                           width: size.width,
@@ -154,18 +134,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('Current Balance:',
+                              const Text('Current Balance',
                                 style: TextStyle(
-                                  fontSize: 16, color: Colors.black)
+                                  fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
                                   ),
                                 const Divider(
                                 color: Colors.grey, 
                                 height: 20, 
                                 ),
                               const SizedBox(height: 7),
-                            Text(balance,
+                                Center(
+                                  child: Text(balance,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.black)),
+                                        fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                ),
                               ],
                             ),
                           ),
@@ -182,18 +164,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Total Amount Collected:',
+                                const Text('Total Amount Collected',
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.black)
+                                        fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
                                         ),
                                 const Divider(
                                 color: Colors.grey, 
                                 height: 20, 
                                 ),
                                 const SizedBox(height: 7),
-                                Text(collected,
+                                Center(
+                                  child: Text(collected,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.black)),
+                                        fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                ),
                               ],
                             ),
                           ),
@@ -210,18 +194,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Investment Value:',
+                                const Text('Investment Value',
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.black)
+                                        fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
                                         ),
                                   const Divider(
                                 color: Colors.grey, 
                                 height: 20, 
                                 ),
                                 const SizedBox(height: 7),
-                                Text(investment,
+                                Center(
+                                  child: Text(investment,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.black)),
+                                        fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                ),
                               ],
                             ),
                           ),
@@ -238,18 +224,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Expected Amount (Add Expected Date?):', //testing long string -> remove question for demo
+                                const Text('Expected Amount', //testing long string -> remove question for demo
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.black)
+                                        fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
                                         ),
                                 const Divider(
                                 color: Colors.grey, 
                                 height: 20, 
                                 ),
                                 const SizedBox(height: 7),
-                                Text(expected,
+                                Center(
+                                  child: Text(expected,
                                     style: const TextStyle(
-                                        fontSize: 19, color: Colors.black)),
+                                        fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                ),
                               ],
                             ),
                           ),
