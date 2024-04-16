@@ -10,13 +10,13 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
 
-  late GoogleMapController mapController;
+  // late GoogleMapController mapController;
    
-  final LatLng _center = const LatLng(-33.86, 151.20);
+  // final LatLng _center = const LatLng(-33.86, 151.20);
    
-   void _onMapCreated(GoogleMapController controller) {
-      mapController = controller;
-   }
+  //  void _onMapCreated(GoogleMapController controller) {
+  //     mapController = controller;
+  //  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class _MapPageState extends State<MapPage> {
       image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
       fit: BoxFit.cover
       ),
-      backgroundColor: Colors.blue,
+      backgroundColor: const Color.fromARGB(255, 123, 212, 247),
       automaticallyImplyLeading: false,
       shape: const Border(
       bottom: BorderSide(

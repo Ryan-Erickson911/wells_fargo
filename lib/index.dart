@@ -44,7 +44,7 @@ class _MainNavigatorState extends State<MainNavigator> {
           elevation: 20, // Set the elevation value here
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.blue,
+            backgroundColor: const Color.fromARGB(255, 123, 212, 247),
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),

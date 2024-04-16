@@ -10,8 +10,8 @@ class DocsPage extends StatelessWidget {
       textDirection: TextDirection.ltr, 
       child: MaterialApp(
         theme: ThemeData(
-          primaryColor: Colors.blue, 
-          scaffoldBackgroundColor: Colors.blueGrey,
+          primaryColor: const Color.fromARGB(255, 123, 212, 247), 
+          scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
         ),
         home: Scaffold(
           appBar: AppBar(
@@ -19,7 +19,7 @@ class DocsPage extends StatelessWidget {
               image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
               fit: BoxFit.cover
             ),
-            backgroundColor: Colors.blue,
+            backgroundColor: const Color.fromARGB(255, 123, 212, 247),
             automaticallyImplyLeading: false,
             shape: const Border(
               bottom: BorderSide(
@@ -35,7 +35,7 @@ class DocsPage extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black), // Add black border
+                  border: Border.all(color: const Color.fromARGB(255, 255, 255, 255)), // Add black border
                 ),
                 child: TextField(
                   style: const TextStyle(
@@ -45,7 +45,7 @@ class DocsPage extends StatelessWidget {
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: 'Notification/Info for User Document - ${index + 1}',
-                    fillColor: Colors.blue, // Replace with your TextField color from home.dart
+                    fillColor: const Color.fromARGB(255, 123, 212, 247), // Replace with your TextField color from home.dart
                     filled: true,
                   ),
                 ),

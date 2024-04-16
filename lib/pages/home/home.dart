@@ -41,7 +41,7 @@ class HomePageWidget extends StatefulWidget {
             image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
             fit: BoxFit.cover
           ),
-          backgroundColor: Colors.blue,
+          backgroundColor: const Color.fromARGB(255, 123, 212, 247),
           automaticallyImplyLeading: false,
           shape: const Border(
             bottom: BorderSide(
@@ -50,7 +50,7 @@ class HomePageWidget extends StatefulWidget {
             ),
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: SizedBox(
           width: size.width,
           height: size.height,
@@ -62,7 +62,7 @@ class HomePageWidget extends StatefulWidget {
                   return Container(
                     height: size.height,
                     width: size.width,
-                    color: Colors.blueGrey,
+                    color: Color.fromARGB(255, 0, 0, 0),
                     child: const Center(
                       child: CircularProgressIndicator(),
                     ),
@@ -79,7 +79,7 @@ class HomePageWidget extends StatefulWidget {
                     width: size.width,
                     height: size.height,
                     decoration: const BoxDecoration(
-                      color: Colors.blueGrey,
+                      color: Color.fromARGB(255, 255, 255, 255),
                     ),
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
@@ -130,7 +130,7 @@ class HomePageWidget extends StatefulWidget {
                               padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: const Color.fromARGB(255, 123, 212, 247),
                                 borderRadius: BorderRadius.circular(5),
                                 boxShadow: [
                                   BoxShadow(
@@ -168,7 +168,7 @@ class HomePageWidget extends StatefulWidget {
                               width: size.width,
                               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: const Color.fromARGB(255, 123, 212, 247),
                                 borderRadius: BorderRadius.circular(5),
                                 boxShadow: [
                                   BoxShadow(
@@ -216,7 +216,7 @@ class HomePageWidget extends StatefulWidget {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                  color: Colors.blue,
+                                  color: const Color.fromARGB(255, 123, 212, 247),
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
                                     BoxShadow(
@@ -255,7 +255,7 @@ class HomePageWidget extends StatefulWidget {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                  color: Colors.blue,
+                                  color: const Color.fromARGB(255, 123, 212, 247),
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
                                     BoxShadow(
