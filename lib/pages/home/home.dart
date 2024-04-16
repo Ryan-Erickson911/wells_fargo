@@ -96,25 +96,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: Text(
+                        Container(
+                          width: size.width,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 5),
+                          decoration: BoxDecoration(
+                            color: Colors.white54,
+                            borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                            Text(
                             "Welcome Back, $fname $lname",
                             style: const TextStyle(
                               fontSize: 25,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: Text(
+                          const Divider(
+                                color: Colors.grey, 
+                                height: 20, 
+                                ),
+                            Text(
                             email,
                             style: const TextStyle(
                               fontSize: 18, color: Colors.black),
                           ),
-                        ),
+                      ],
+                    ),
+                    ),
+                        
                         const SizedBox(height: 20),
                         Container(
                           width: size.width,
@@ -123,7 +136,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           decoration: BoxDecoration(
                             color: Colors.white54,
                             borderRadius: BorderRadius.circular(5)),
-                          child: const Text('Account Information',
+                          child: const Text('Account Information:',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.black,
@@ -144,7 +157,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             children: [
                               const Text('Current Balance:',
                                 style: TextStyle(
-                                  fontSize: 16, color: Colors.black)),
+                                  fontSize: 16, color: Colors.black)
+                                  ),
+                                const Divider(
+                                color: Colors.grey, 
+                                height: 20, 
+                                ),
                               const SizedBox(height: 7),
                             Text(balance,
                                     style: const TextStyle(
@@ -167,7 +185,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               children: [
                                 const Text('Total Amount Collected:',
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.black)),
+                                        fontSize: 16, color: Colors.black)
+                                        ),
+                                const Divider(
+                                color: Colors.grey, 
+                                height: 20, 
+                                ),
                                 const SizedBox(height: 7),
                                 Text(collected,
                                     style: const TextStyle(
@@ -190,7 +213,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               children: [
                                 const Text('Investment Value:',
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.black)),
+                                        fontSize: 16, color: Colors.black)
+                                        ),
+                                  const Divider(
+                                color: Colors.grey, 
+                                height: 20, 
+                                ),
                                 const SizedBox(height: 7),
                                 Text(investment,
                                     style: const TextStyle(
@@ -213,7 +241,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               children: [
                                 const Text('Expected Amount (Add Expected Date?):', //testing long string -> remove question for demo
                                     style: TextStyle(
-                                        fontSize: 16, color: Colors.black)),
+                                        fontSize: 16, color: Colors.black)
+                                        ),
+                                const Divider(
+                                color: Colors.grey, 
+                                height: 20, 
+                                ),
                                 const SizedBox(height: 7),
                                 Text(expected,
                                     style: const TextStyle(
