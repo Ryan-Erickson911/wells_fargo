@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pages/home/home.dart';
-import 'pages/map/map.dart';
+import 'pages/home/map.dart';
 import 'pages/home/docs.dart';
 
 
@@ -24,7 +24,7 @@ class _MainNavigatorState extends State<MainNavigator> {
     _selectedIndex = 0;
     _screens = [
       HomePageWidget(email: widget.navemail, password: widget.navpassword),
-      const PlaceTrackerApp(),
+      const MapPage(),
       DocsPage(),
     ];
   }
@@ -44,16 +44,16 @@ class _MainNavigatorState extends State<MainNavigator> {
         backgroundColor: Colors.green[100],
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.book_online),
-            label: 'Page 1',
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.read_more),
-            label: 'Page 2',
+            icon: Icon(Icons.map),
+            label: 'Map',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
+            icon: Icon(Icons.list_alt),
+            label: 'Docs',
           ),
         ],
         currentIndex: _selectedIndex,
