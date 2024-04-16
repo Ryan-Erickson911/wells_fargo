@@ -5,8 +5,6 @@ import '../../../index.dart';
 import '../../../data/validator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../home/home.dart';
-
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({super.key});
 
@@ -46,7 +44,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
       // ignore: unrelated_type_equality_checks
       if (res.toString()!=Null) {
-        Navigator.push(context,MaterialPageRoute(builder: (context) => HomePageWidget(email: emailController.text, password: passwordController.text))); //Homepage Route
+        Navigator.push(context,MaterialPageRoute(builder: (context) => MainNavigator(navemail: emailController.text, navpassword: passwordController.text))); //Homepage Route
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: const Text('Error'), backgroundColor: Colors.red.shade300,));

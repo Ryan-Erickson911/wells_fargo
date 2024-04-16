@@ -6,29 +6,35 @@ import 'pages/home/docs.dart';
 
 
 class MainNavigator extends StatefulWidget {
-  final String nav_email;
-  final String nav_password;
-  const MainNavigator({super.key, required this.nav_email, required this.nav_password});
+  final String navemail;
+  final String navpassword;
+  const MainNavigator({super.key, required this.navemail, required this.navpassword});
 
   @override
   State<MainNavigator> createState() => _MainNavigatorState();
 }
 
 class _MainNavigatorState extends State<MainNavigator> {
-  
+  late List<Widget> _screens;
+  late int _selectedIndex;
 
-  List<Widget> _screens = [
-    HomePageWidget(email: widget.nav_email, password: widget.nav_password,),
-    const PlaceTrackerApp(),
-    DocsPage(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = 0;
+    _screens = [
+      HomePageWidget(email: widget.navemail, password: widget.navpassword),
+      const PlaceTrackerApp(),
+      DocsPage(),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
-  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(

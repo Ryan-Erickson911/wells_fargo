@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../splash/splashscreen.dart';
-import '../map/place_tracker_app.dart';
 
 class HomePageWidget extends StatefulWidget {
   final String email;
@@ -285,27 +284,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               return const SizedBox();},
      )
     ),
-    bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.green[100],
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book_online),
-            label: 'Page 1',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.read_more),
-            label: 'Page 2',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-      ),  
   );
  }
 }
