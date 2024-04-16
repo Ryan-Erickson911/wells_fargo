@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 import 'place.dart';
-import 'place_tracker_app.dart';
+import 'map.dart';
 
 class MapConfiguration {
   final List<Place> places;

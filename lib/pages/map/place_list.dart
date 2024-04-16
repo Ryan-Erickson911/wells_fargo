@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import 'place.dart';
-import 'place_tracker_app.dart';
+import 'map.dart';
 
 class PlaceList extends StatefulWidget {
   const PlaceList({super.key});

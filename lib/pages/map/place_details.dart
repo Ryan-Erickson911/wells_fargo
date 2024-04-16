@@ -7,7 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'place.dart';
-import 'place_tracker_app.dart';
+import 'map.dart';
 import 'stub_data.dart';
 
 class PlaceDetails extends StatefulWidget {

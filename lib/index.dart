@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pages/home/home.dart';
-import 'pages/home/map.dart';
+import 'pages/map/map.dart';
 import 'pages/home/docs.dart';
 
 
