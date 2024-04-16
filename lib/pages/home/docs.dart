@@ -11,13 +11,23 @@ class DocsPage extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           primaryColor: Colors.blue, 
-          scaffoldBackgroundColor:const Color.fromARGB(255, 130, 199, 255), // Replace with your background color from home.dart
+            scaffoldBackgroundColor: Colors.blueGrey,
         ),
         home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Documents Page',selectionColor: Color.fromARGB(255, 255, 255, 255),),
-            backgroundColor: Colors.blue,
-          ),
+         appBar: AppBar(
+      title: const Image(
+      image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
+      fit: BoxFit.cover
+      ),
+      backgroundColor: Colors.blue,
+      automaticallyImplyLeading: false,
+      shape: const Border(
+      bottom: BorderSide(
+        color: Colors.black,
+        width: 0.5,
+      ),
+      ),
+    ),
           body: ListView.builder(
             itemCount: 5, 
             itemBuilder: (context, index) {

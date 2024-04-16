@@ -23,9 +23,19 @@ class _MapPageState extends State<MapPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Investment Locations'),
-          backgroundColor: const Color.fromARGB(255, 13, 227, 255),
-        ),
+      title: const Image(
+      image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
+      fit: BoxFit.cover
+      ),
+      backgroundColor: Colors.blue,
+      automaticallyImplyLeading: false,
+      shape: const Border(
+      bottom: BorderSide(
+        color: Colors.black,
+        width: 0.5,
+      ),
+      ),
+    ),
         body: const Text("This is a page"),//GoogleMap(
       //       onMapCreated: _onMapCreated,
       //       initialCameraPosition: CameraPosition(

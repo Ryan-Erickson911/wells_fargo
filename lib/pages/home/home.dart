@@ -37,12 +37,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   var size = MediaQuery.of(context).size;
   return Scaffold(
     appBar: AppBar(
-            title: const Image(
-                          image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
-                          fit: BoxFit.cover),
-                          backgroundColor: Colors.blue,
-                          automaticallyImplyLeading: false,
-                  ),
+      title: const Image(
+      image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
+      fit: BoxFit.cover
+      ),
+      backgroundColor: Colors.blue,
+      automaticallyImplyLeading: false,
+      shape: const Border(
+      bottom: BorderSide(
+        color: Colors.black,
+        width: 0.5,
+      ),
+      ),
+    ),
     backgroundColor: Colors.white,
     body: SizedBox(
       width: size.width,
@@ -71,12 +78,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               return Container(
                 width: size.width,
                 height: size.height,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Colors.blue, Colors.blueGrey.shade400],
-                  ),
+                decoration: const BoxDecoration(
+                  color: Colors.blueGrey,
                 ),
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -127,8 +130,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 5),
                           decoration: BoxDecoration(
-                            color: Colors.white54,
-                            borderRadius: BorderRadius.circular(5)),
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(5),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.2),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -138,45 +150,62 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
                                   ),
-                                const Divider(
-                                color: Colors.grey, 
+                              const Divider(
+                                color: Colors.black, 
                                 height: 20, 
-                                ),
+                              ),
                               const SizedBox(height: 7),
-                                Center(
-                                  child: Text(balance,
-                                    style: const TextStyle(
-                                        fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
-                                ),
-                              ],
-                            ),
+                              Center(
+                                child: Text(balance,
+                                  style: const TextStyle(
+                                      fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                              ),
+                            ],
                           ),
+                        ),
                           const SizedBox(height: 20),
                           Container(
                             width: size.width,
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
+                            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                             decoration: BoxDecoration(
-                                color: Colors.white54,
-                                borderRadius: BorderRadius.circular(5)),
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(5),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text('Total Amount Collected',
-                                    style: TextStyle(
-                                        fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
-                                        ),
+                                const Text(
+                                  'Total Amount Collected',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
                                 const Divider(
-                                color: Colors.grey, 
-                                height: 20, 
+                                  color: Colors.black,
+                                  height: 20,
                                 ),
                                 const SizedBox(height: 7),
                                 Center(
-                                  child: Text(collected,
+                                  child: Text(
+                                    collected,
                                     style: const TextStyle(
-                                        fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -187,8 +216,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 5),
                             decoration: BoxDecoration(
-                                color: Colors.white54,
-                                borderRadius: BorderRadius.circular(5)),
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(5),
+                                boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                                ],
+                              ),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -199,7 +237,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
                                         ),
                                   const Divider(
-                                color: Colors.grey, 
+                                color: Colors.black, 
                                 height: 20, 
                                 ),
                                 const SizedBox(height: 7),
@@ -217,8 +255,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 5),
                             decoration: BoxDecoration(
-                                color: Colors.white54,
-                                borderRadius: BorderRadius.circular(5)),
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(5),
+                                boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: const Offset(0, 3),
+                                ),
+                                ],
+                                ),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -229,7 +276,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
                                         ),
                                 const Divider(
-                                color: Colors.grey, 
+                                color: Colors.black, 
                                 height: 20, 
                                 ),
                                 const SizedBox(height: 7),
