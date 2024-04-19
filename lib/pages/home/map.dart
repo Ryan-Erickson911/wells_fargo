@@ -10,13 +10,13 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
 
-  late GoogleMapController mapController;
+  // late GoogleMapController mapController;
    
-  final LatLng _center = const LatLng(-33.86, 151.20);
+  // final LatLng _center = const LatLng(-33.86, 151.20);
    
-   void _onMapCreated(GoogleMapController controller) {
-      mapController = controller;
-   }
+  //  void _onMapCreated(GoogleMapController controller) {
+  //     mapController = controller;
+  //  }
 
   @override
   Widget build(BuildContext context) {

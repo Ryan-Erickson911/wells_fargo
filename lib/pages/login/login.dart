@@ -28,7 +28,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   
-  bool _showPassword = false;
+  bool _showPassword = true;
 
   Future<void> login() async {
     
@@ -117,7 +117,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               suffixIcon: GestureDetector(
                                 onTap: () {
                                   setState(
-                                      () => _showPassword = _showPassword);
+                                      () => _showPassword = !_showPassword);
                                 },
                                 child: Icon(
                                   _showPassword

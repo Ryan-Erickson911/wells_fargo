@@ -66,7 +66,7 @@ class DocsPage extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black), // Add black border
+                  border: Border.all(color: const Color.fromARGB(255, 255, 255, 255)), // Add black border
                 ),
                 child: TextField(
                   style: const TextStyle(
