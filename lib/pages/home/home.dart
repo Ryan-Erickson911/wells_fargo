@@ -28,7 +28,7 @@ class HomePageWidget extends StatefulWidget {
     }
 
     @override
-    void dispose() {
+    void dispose() {  
       super.dispose();
     }
 
@@ -42,7 +42,6 @@ class HomePageWidget extends StatefulWidget {
             fit: BoxFit.cover
           ),
           backgroundColor: Colors.blue,
-          automaticallyImplyLeading: false,
           shape: const Border(
             bottom: BorderSide(
               color: Colors.black,
@@ -50,7 +49,39 @@ class HomePageWidget extends StatefulWidget {
             ),
           ),
         ),
-        backgroundColor: Colors.white,
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+          child: Text(
+            'Menu',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+          ),
+              ),
+              ListTile(
+          title: const Text('Item 1'),
+          onTap: () {
+            // Handle item 1 tap
+          },
+              ),
+              ListTile(
+          title: const Text('Item 2'),
+          onTap: () {
+            // Handle item 2 tap
+          },
+              ),
+              // Add more ListTile widgets for additional menu items
+            ],
+          ),
+        ),
+        backgroundColor: Colors.blue,
         body: SizedBox(
           width: size.width,
           height: size.height,
@@ -62,7 +93,7 @@ class HomePageWidget extends StatefulWidget {
                   return Container(
                     height: size.height,
                     width: size.width,
-                    color: Colors.blueGrey,
+                    color: Colors.blue,
                     child: const Center(
                       child: CircularProgressIndicator(),
                     ),
@@ -79,7 +110,7 @@ class HomePageWidget extends StatefulWidget {
                     width: size.width,
                     height: size.height,
                     decoration: const BoxDecoration(
-                      color: Colors.blueGrey,
+                      color: Colors.blue,
                     ),
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
@@ -100,7 +131,7 @@ class HomePageWidget extends StatefulWidget {
                                   "Welcome Back, $fname $lname",
                                   style: const TextStyle(
                                     fontSize: 25,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -108,7 +139,7 @@ class HomePageWidget extends StatefulWidget {
                                   email,
                                   style: const TextStyle(
                                     fontSize: 18,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ],
@@ -118,10 +149,10 @@ class HomePageWidget extends StatefulWidget {
                             const Text('Account Information',
                               style: TextStyle(
                                 fontSize: 20,
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold)),
                             const Divider(
-                              color: Colors.black, 
+                              color: Colors.white, 
                               height: 20, 
                             ),
                             const SizedBox(height: 20),
@@ -130,7 +161,7 @@ class HomePageWidget extends StatefulWidget {
                               padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(5),
                                 boxShadow: [
                                   BoxShadow(
@@ -148,17 +179,17 @@ class HomePageWidget extends StatefulWidget {
                                 children: [
                                   const Text('Current Balance',
                                     style: TextStyle(
-                                      fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
+                                      fontSize: 20, color: Colors.blue)
                                     ),
                                   const Divider(
-                                    color: Colors.black, 
+                                    color: Colors.blue, 
                                     height: 20, 
                                   ),
                                   const SizedBox(height: 7),
                                   Center(
                                     child: Text(balance,
                                       style: const TextStyle(
-                                        fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                        fontSize: 19, color: Colors.blue)),
                                   ),
                                 ],
                               ),
@@ -168,7 +199,7 @@ class HomePageWidget extends StatefulWidget {
                               width: size.width,
                               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(5),
                                 boxShadow: [
                                   BoxShadow(
@@ -188,12 +219,11 @@ class HomePageWidget extends StatefulWidget {
                                     'Total Amount Collected',
                                     style: TextStyle(
                                       fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                      color: Colors.blue,
                                     ),
                                   ),
                                   const Divider(
-                                    color: Colors.black,
+                                    color: Colors.blue,
                                     height: 20,
                                   ),
                                   const SizedBox(height: 7),
@@ -202,8 +232,7 @@ class HomePageWidget extends StatefulWidget {
                                       collected,
                                       style: const TextStyle(
                                         fontSize: 19,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
+                                        color: Colors.blue,
                                       ),
                                     ),
                                   ),
@@ -216,7 +245,7 @@ class HomePageWidget extends StatefulWidget {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                  color: Colors.blue,
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
                                     BoxShadow(
@@ -234,17 +263,17 @@ class HomePageWidget extends StatefulWidget {
                                 children: [
                                   const Text('Investment Value',
                                       style: TextStyle(
-                                          fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
+                                          fontSize: 20, color: Colors.blue)
                                           ),
                                   const Divider(
-                                    color: Colors.black, 
+                                    color: Colors.blue, 
                                     height: 20, 
                                   ),
                                   const SizedBox(height: 7),
                                   Center(
                                     child: Text(investment,
                                       style: const TextStyle(
-                                          fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                          fontSize: 19, color: Colors.blue)),
                                   ),
                                 ],
                               ),
@@ -255,7 +284,7 @@ class HomePageWidget extends StatefulWidget {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 5),
                               decoration: BoxDecoration(
-                                  color: Colors.blue,
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
                                     BoxShadow(
@@ -273,17 +302,17 @@ class HomePageWidget extends StatefulWidget {
                                 children: [
                                   const Text('Expected Amount', //testing long string -> remove question for demo
                                       style: TextStyle(
-                                          fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black)
+                                          fontSize: 20, color: Colors.blue)
                                           ),
                                   const Divider(
-                                    color: Colors.black, 
+                                    color: Colors.blue, 
                                     height: 20, 
                                   ),
                                   const SizedBox(height: 7),
                                   Center(
                                     child: Text(expected,
                                       style: const TextStyle(
-                                          fontSize: 19, fontWeight: FontWeight.bold, color: Colors.black)),
+                                          fontSize: 19, color: Colors.blue)),
                                   ),
                                 ],
                               ),

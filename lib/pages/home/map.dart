@@ -23,19 +23,50 @@ class _MapPageState extends State<MapPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-      title: const Image(
-      image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
-      fit: BoxFit.cover
-      ),
-      backgroundColor: Colors.blue,
-      automaticallyImplyLeading: false,
-      shape: const Border(
-      bottom: BorderSide(
-        color: Colors.black,
-        width: 0.5,
-      ),
-      ),
-    ),
+          title: const Image(
+            image: AssetImage('assets/images/smallslogan.png'), // profile pic needs to be replaced with company logo 
+            fit: BoxFit.cover
+          ),
+          backgroundColor: Colors.blue,
+          shape: const Border(
+            bottom: BorderSide(
+              color: Colors.black,
+              width: 0.5,
+            ),
+          ),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
+          child: Text(
+            'Menu',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+          ),
+              ),
+              ListTile(
+          title: const Text('Item 1'),
+          onTap: () {
+            // Handle item 1 tap
+          },
+              ),
+              ListTile(
+          title: const Text('Item 2'),
+          onTap: () {
+            // Handle item 2 tap
+          },
+              ),
+              // Add more ListTile widgets for additional menu items
+            ],
+          ),
+        ),
         body: const Text("This is a page"),//GoogleMap(
       //       onMapCreated: _onMapCreated,
       //       initialCameraPosition: CameraPosition(
