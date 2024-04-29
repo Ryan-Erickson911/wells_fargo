@@ -24,7 +24,7 @@ class _MainNavigatorState extends State<MainNavigator> {
     _selectedIndex = 0;
     _screens = [
       HomePageWidget(email: widget.navemail, password: widget.navpassword),
-      const MapPage(),
+      const MapSample(),
       DocsPage(),
     ];
   }
