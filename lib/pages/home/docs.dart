@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import '../splash/splashscreen.dart';
+
 
 class DocsPage extends StatelessWidget {
   DocsPage({super.key});
@@ -55,6 +58,32 @@ class DocsPage extends StatelessWidget {
             // Handle item 2 tap
           },
               ),
+            ListTile(
+        title: TextButton(
+          onPressed: () async {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SplashScreen(),
+              ),
+            );
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.redAccent.shade700,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            padding: const EdgeInsets.symmetric(
+              vertical: 15, 
+              horizontal: 25,
+            ),
+          ),
+          child: const Text(
+            'Logout',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
               // Add more ListTile widgets for additional menu items
             ],
           ),
