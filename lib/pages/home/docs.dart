@@ -25,7 +25,7 @@ class DocsPage extends StatelessWidget {
           backgroundColor: Colors.blue,
           shape: const Border(
             bottom: BorderSide(
-              color: Colors.black,
+              color: Colors.blue,
               width: 0.5,
             ),
           ),
