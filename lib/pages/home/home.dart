@@ -182,95 +182,73 @@ class HomePageWidget extends StatefulWidget {
                               height: 20, 
                             ),
                             const SizedBox(height: 20),
-                            Container(
-                              width: size.width,
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(5),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.2),
-                                    spreadRadius: 2,
-                                    blurRadius: 5,
-                                    offset: const Offset(0, 3),
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('Current Balance',
-                                    style: TextStyle(
-                                      fontSize: 20, color: Colors.blue)
+                            ExpansionTile(
+                              title: Container(
+                                width: size.width,
+                                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: const Offset(0, 3),
                                     ),
-                                  const Divider(
-                                    color: Colors.blue, 
-                                    height: 20, 
-                                  ),
-                                  const SizedBox(height: 7),
-                                  Center(
-                                    child: Text(balance,
-                                      style: const TextStyle(
-                                        fontSize: 19, color: Colors.blue)),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            Container(
-                              width: size.width,
-                              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(5),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.2),
-                                    spreadRadius: 2,
-                                    blurRadius: 5,
-                                    offset: const Offset(0, 3),
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Total Amount Collected',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.blue,
-                                    ),
-                                  ),
-                                  const Divider(
-                                    color: Colors.blue,
-                                    height: 20,
-                                  ),
-                                  const SizedBox(height: 7),
-                                  Center(
-                                    child: Text(
-                                      collected,
-                                      style: const TextStyle(
-                                        fontSize: 19,
+                                  ],
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Current Balance',
+                                      style: TextStyle(
+                                        fontSize: 20,
                                         color: Colors.blue,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    const Divider(
+                                      color: Colors.blue,
+                                      height: 20,
+                                    ),
+                                    const SizedBox(height: 7),
+                                    Center(
+                                      child: Text(
+                                        balance,
+                                        style: const TextStyle(
+                                          fontSize: 19,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
+                                children: [
+                                // Add any additional content you want to display when expanded
+                                ListView(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                    children: const [
+                                    ListTile(
+                                      title: Text('Item 1'),
+                                    ),
+                                    ListTile(
+                                      title: Text('Item 2'),
+                                    ),
+                                    ],
+                                ),
+                                ],
                             ),
                             const SizedBox(height: 20),
-                            Container(
-                              width: size.width,
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 5, horizontal: 5),
-                              decoration: BoxDecoration(
+                            ExpansionTile(
+                              title: Container(
+                                width: size.width,
+                                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                                decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
@@ -282,34 +260,57 @@ class HomePageWidget extends StatefulWidget {
                                     ),
                                   ],
                                 ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('Investment Value',
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Total Amount Collected',
                                       style: TextStyle(
-                                          fontSize: 20, color: Colors.blue)
-                                          ),
-                                  const Divider(
-                                    color: Colors.blue, 
-                                    height: 20, 
-                                  ),
-                                  const SizedBox(height: 7),
-                                  Center(
-                                    child: Text(investment,
-                                      style: const TextStyle(
-                                          fontSize: 19, color: Colors.blue)),
-                                  ),
-                                ],
+                                        fontSize: 20,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    const Divider(
+                                      color: Colors.blue,
+                                      height: 20,
+                                    ),
+                                    const SizedBox(height: 7),
+                                    Center(
+                                      child: Text(
+                                        collected,
+                                        style: const TextStyle(
+                                          fontSize: 19,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
+                                children: [
+                                // Add any additional content you want to display when expanded
+                                ListView(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                    children: const [
+                                    ListTile(
+                                      title: Text('Item 1'),
+                                    ),
+                                    ListTile(
+                                      title: Text('Item 2'),
+                                    ),
+                                    ],
+                                ),
+                                ],
                             ),
                             const SizedBox(height: 20),
-                            Container(
-                              width: size.width,
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 5, horizontal: 5),
-                              decoration: BoxDecoration(
+                            ExpansionTile(
+                              title: Container(
+                                width: size.width,
+                                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                                decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
@@ -321,27 +322,112 @@ class HomePageWidget extends StatefulWidget {
                                     ),
                                   ],
                                 ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('Expected Amount', //testing long string -> remove question for demo
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Investment Value',
                                       style: TextStyle(
-                                          fontSize: 20, color: Colors.blue)
-                                          ),
-                                  const Divider(
-                                    color: Colors.blue, 
-                                    height: 20, 
-                                  ),
-                                  const SizedBox(height: 7),
-                                  Center(
-                                    child: Text(expected,
-                                      style: const TextStyle(
-                                          fontSize: 19, color: Colors.blue)),
-                                  ),
-                                ],
+                                        fontSize: 20,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    const Divider(
+                                      color: Colors.blue,
+                                      height: 20,
+                                    ),
+                                    const SizedBox(height: 7),
+                                    Center(
+                                      child: Text(
+                                        investment,
+                                        style: const TextStyle(
+                                          fontSize: 19,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
+                                children: [
+                                // Add any additional content you want to display when expanded
+                                ListView(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                    children: const [
+                                    ListTile(
+                                      title: Text('Item 1'),
+                                    ),
+                                    ListTile(
+                                      title: Text('Item 2'),
+                                    ),
+                                    ],
+                                ),
+                                ],
+                            ),
+                            const SizedBox(height: 20),
+                            ExpansionTile(
+                              title: Container(
+                                width: size.width,
+                                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(5),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 5,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Expected Amount',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                    const Divider(
+                                      color: Colors.blue,
+                                      height: 20,
+                                    ),
+                                    const SizedBox(height: 7),
+                                    Center(
+                                      child: Text(
+                                        expected,
+                                        style: const TextStyle(
+                                          fontSize: 19,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                                children: [
+                                // Add any additional content you want to display when expanded
+                                ListView(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                    children: const [
+                                    ListTile(
+                                      title: Text('Item 1'),
+                                    ),
+                                    ListTile(
+                                      title: Text('Item 2'),
+                                    ),
+                                    ],
+                                ),
+                                ],
                             ),
                             ],
                         ),
